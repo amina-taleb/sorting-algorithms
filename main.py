@@ -84,7 +84,7 @@ def afficher_interface() :
     button6  = ctk.CTkButton(master=frame_menu, text='Bulle', width=200, fg_color='green', command=lambda : sorting.bulle())
     button6.grid(row=6, column=0, padx=10, pady=10)
 
-    button7  = ctk.CTkButton(master=frame_menu, text='Tas', width=200, fg_color='green')
+    button7  = ctk.CTkButton(master=frame_menu, text='Tas', width=200, fg_color='green', command=lambda : sorting.heap_sort(liste))
     button7.grid(row=7, column=0, padx=10, pady=10)
 
     button8  = ctk.CTkButton(master=frame_menu, text='TRIER', width=200, fg_color='red') #créer une fonction qui choisit l'algorithme à exécuter selon la nature du problème

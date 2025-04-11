@@ -87,8 +87,33 @@ def peigne(liste):
                 liste[en_cours], liste[en_cours+gap]=liste[en_cours+gap], liste[en_cours]
     return liste
 #####################################################################################################################################
-def tas(liste) :
-    print(f"")
+def heap_sort(arr):
+    def heapify(n, i):
+        largest = i
+        left = 2 * i + 1
+        right = 2 * i + 2
+
+        if left < n and arr[left] > arr[largest]:
+            largest = left
+        if right < n and arr[right] > arr[largest]:
+            largest = right
+
+        if largest != i:
+            arr[i], arr[largest] = arr[largest], arr[i]
+            heapify(n, largest)
+
+    n = len(arr)
+
+    # Construction du tas max
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(n, i)
+
+    # Extraction des éléments un par un
+    for i in range(n - 1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]
+        heapify(i, 0)
+
+
 
 #####################################################################################################################################################################
 def rapide(liste, T) :
