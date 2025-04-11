@@ -1,13 +1,13 @@
 #ici, je vais créer 7 fonctions qui traduisent les algorithmes de tri :
 
-#import numpy as np
+import numpy as np
 
 #Récap :
 # Insertion : comparer 2 à 2 a partir de 0
 # Selection : chercher le min dans toute la liste
 ########################################################################################################################
 #1. Tri par insertion :
-def insertion(liste) :
+def insertion(liste, complexité) :
     n = len(liste) 
     for i in range (1, n) :
         key = liste[i]  #un pointeur (element d'indice quelconque)
@@ -31,31 +31,48 @@ def selection(liste) :
     return liste
 
 ###################################################################################################################################################################
-def bulle(liste) :
-    print(f"")
+def bulle(liste) :   #le concept : tout revient à sa place, exemple d'un mélange d'eau et de l'huile
+    n = len(liste) 
+    for i in range(0, n-1) :  #les tours
+        for j in range(0, (n-1)-i) :
+            if liste[j] > liste[j+1] :
+                liste[j], liste[j+1] = liste[j+1], liste[j]
+    return liste
 
 ####################################################################################################################################################################
 def fusion(liste) :
     print(f"")
 
+######################################################################################################################################
+def peigne(liste) :
+    print(f"")
+
+#####################################################################################################################################
+def tas(liste) :
+    print(f"")
+
 #####################################################################################################################################################################
-def rapide(liste) :
+def rapide(liste, T) :
     n = len(liste)
+    T0 = 1
     if n <= 1 :   # il y a un seul element dans la liste ou une liste vide
         return liste 
-    pivot = liste[-1]   #par convention on choisit le dernier element
-    # ou bien : pivot = liste.pop() une fonction qui renvoit le dernier element
+    #pivot = np.median(liste, axis=0)       #axis=0, cela signifie que nous calculons la médiane le long de l'axe des lignes
+    pivot = liste.pop()         #une fonction qui renvoit le dernier element (Généralement, ce qu'on choisit)
     liste_inf = []
-    liste_sup = []   #créer deux listes
+    liste_sup = []       #créer deux listes
     for i in range (0, n-1) :
         if liste[i] <= pivot :
             liste_inf.append(liste[i])
         else :
             liste_sup.append(liste[i])
 
+    complexité = n * T0 + np.log2(n) * 
     return rapide(liste_inf) + [pivot] + rapide(liste_sup)
-
+# Ici pour rendre cet algorithme moins complexe, je choisit le pivot = mediane 
 #####################################################################################################################################################################
+#ajouter une fonction teste unitaire
 #exemple : 
-liste = [8, 2, 6, 9, 5, 6, 0, 4, 7, 1]
-print(rapide(liste))
+# liste = [8, 2, 6, 9, 5, 0, 4, 7, 1]
+# print(rapide(liste))
+#Ajoute le calcule de complexité temporelle de chaque algorithme + graphes et une condition de sélection d'un algo en fonction du problème (fichiers excels? txt?)

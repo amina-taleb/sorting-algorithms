@@ -45,7 +45,8 @@ def afficher_interface() :
 ################################################################################################################################
     frame_graph = ctk.CTkFrame(master=window, fg_color='grey')
     frame_graph.grid(row=1, column=1, sticky="nsew", padx=5, pady=5)
-    
+    # dans cette partie, on crée des annimations pour expliquer les algorithmes
+
 ###############################################################################################################################
     # Pour le bloc menu = choisir l'algorithme
     frame_menu = ctk.CTkFrame(master=window, fg_color='grey')
@@ -59,9 +60,10 @@ def afficher_interface() :
     frame_menu.grid_rowconfigure(5, weight=5)
     frame_menu.grid_rowconfigure(6, weight=5)
     frame_menu.grid_rowconfigure(7, weight=5)
+    frame_menu.grid_rowconfigure(8, weight=5)
 
 
-    label1 = ctk.CTkLabel(master=frame_menu, text='Choisir un algorithme', text_color='black', font=('Arial', 20))
+    label1 = ctk.CTkLabel(master=frame_menu, text='Visualiser les algorithmes', text_color='black', font=('Arial', 20))
     label1.grid(row=0, column=0, padx=10, pady=10)
 
     button1  = ctk.CTkButton(master=frame_menu, text='Selection', width=200, fg_color='green' ,command=lambda : sorting.selection(liste))
@@ -73,17 +75,20 @@ def afficher_interface() :
     button3  = ctk.CTkButton(master=frame_menu, text='Fusion', width=200, fg_color='green')
     button3.grid(row=3, column=0, padx=10, pady=10)
 
-    button4  = ctk.CTkButton(master=frame_menu, text='Rapide', width=200, fg_color='green')
+    button4  = ctk.CTkButton(master=frame_menu, text='Rapide', width=200, fg_color='green', command=lambda : sorting.rapide(liste))
     button4.grid(row=4, column=0, padx=10, pady=10)
 
     button5  = ctk.CTkButton(master=frame_menu, text='Peigne', width=200, fg_color='green')
     button5.grid(row=5, column=0, padx=10, pady=10)
 
-    button6  = ctk.CTkButton(master=frame_menu, text='Bulle', width=200, fg_color='green')
+    button6  = ctk.CTkButton(master=frame_menu, text='Bulle', width=200, fg_color='green', command=lambda : sorting.bulle())
     button6.grid(row=6, column=0, padx=10, pady=10)
 
     button7  = ctk.CTkButton(master=frame_menu, text='Tas', width=200, fg_color='green')
     button7.grid(row=7, column=0, padx=10, pady=10)
+
+    button8  = ctk.CTkButton(master=frame_menu, text='TRIER', width=200, fg_color='red') #créer une fonction qui choisit l'algorithme à exécuter selon la nature du problème
+    button8.grid(row=7, column=0, padx=10, pady=10)
 
 
     window.mainloop()
@@ -91,4 +96,4 @@ def afficher_interface() :
 
 
 #lancer l'interface :
-#afficher_interface()
+afficher_interface()
