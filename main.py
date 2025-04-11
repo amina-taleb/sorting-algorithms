@@ -72,13 +72,13 @@ def afficher_interface() :
     button2  = ctk.CTkButton(master=frame_menu, text='Insertion', width=200, fg_color='green', command=lambda : sorting.insertion(liste))
     button2.grid(row=2, column=0, padx=10, pady=10)
 
-    button3  = ctk.CTkButton(master=frame_menu, text='Fusion', width=200, fg_color='green')
+    button3  = ctk.CTkButton(master=frame_menu, text='Fusion', width=200, fg_color='green', command=lambda : sorting.tri_fusion(liste))
     button3.grid(row=3, column=0, padx=10, pady=10)
 
     button4  = ctk.CTkButton(master=frame_menu, text='Rapide', width=200, fg_color='green', command=lambda : sorting.rapide(liste))
     button4.grid(row=4, column=0, padx=10, pady=10)
 
-    button5  = ctk.CTkButton(master=frame_menu, text='Peigne', width=200, fg_color='green')
+    button5  = ctk.CTkButton(master=frame_menu, text='Peigne', width=200, fg_color='green', command=lambda : sorting.peigne(liste))
     button5.grid(row=5, column=0, padx=10, pady=10)
 
     button6  = ctk.CTkButton(master=frame_menu, text='Bulle', width=200, fg_color='green', command=lambda : sorting.bulle())

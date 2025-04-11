@@ -1,6 +1,8 @@
 #ici, je vais créer 7 fonctions qui traduisent les algorithmes de tri :
 
 import numpy as np
+import math
+
 
 #Récap :
 # Insertion : comparer 2 à 2 a partir de 0
@@ -40,13 +42,50 @@ def bulle(liste) :   #le concept : tout revient à sa place, exemple d'un mélan
     return liste
 
 ####################################################################################################################################################################
-def fusion(liste) :
-    print(f"")
+def fusion(gauche, droite) :
+    res = []
+    index_gauche, index_droite = 0,0
+    while index_gauche < len(gauche) and index_droite < len(droite):
+        if gauche[index_gauche] <= droite[index_droite]:
+            res.append(gauche[index_gauche])
+            index_gauche +=1
+        else:
+            res.append(droite[index_droite])
+            index_droite +=1
+    if gauche:
+        res.extend(gauche[index_gauche:])
+    if droite:
+        res.extend(droite[index_droite:])
+    return res
+
+def tri_fusion(liste):
+    if len(liste) <= 1:
+        return liste
+    milieu = len(liste)//2
+    gauche= liste[:milieu]
+    droite= liste[milieu:]
+    gauche=tri_fusion(gauche)
+    droite=tri_fusion(droite)
+    return list(fusion(gauche, droite))
+
+
+
 
 ######################################################################################################################################
-def peigne(liste) :
-    print(f"")
 
+def peigne(liste):
+    permutation=True
+    gap=len(liste)
+    while (permutation == True) or gap>1:
+        permutation=False
+        gap = math.floor(gap/1.28)
+        if gap<1:
+            gap=1
+        for en_cours in range(0, len(liste)-gap):
+            if liste[en_cours]>liste[en_cours+gap]:
+                permutation=True
+                liste[en_cours], liste[en_cours+gap]=liste[en_cours+gap], liste[en_cours]
+    return liste
 #####################################################################################################################################
 def tas(liste) :
     print(f"")
