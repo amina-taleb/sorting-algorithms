@@ -67,7 +67,7 @@ def rapide(liste, T) :
         else :
             liste_sup.append(liste[i])
 
-    complexité = n * T0 + np.log2(n) * 
+    # complexité = n * T0 + np.log2(n) * 
     return rapide(liste_inf) + [pivot] + rapide(liste_sup)
 # Ici pour rendre cet algorithme moins complexe, je choisit le pivot = mediane 
 #####################################################################################################################################################################

@@ -66,10 +66,10 @@ def afficher_interface() :
     label1 = ctk.CTkLabel(master=frame_menu, text='Visualiser les algorithmes', text_color='black', font=('Arial', 20))
     label1.grid(row=0, column=0, padx=10, pady=10)
 
-    button1  = ctk.CTkButton(master=frame_menu, text='Selection', width=200, fg_color='green' ,command=lambda : sorting.selection(liste))
+    button1  = ctk.CTkButton(master=frame_menu, text='Sélection', width=200, fg_color='green' ,command=lambda : sorting.selection(liste))
     button1.grid(row=1, column=0, padx=10, pady=10)
 
-    button2  = ctk.CTkButton(master=frame_menu, text='Inserion', width=200, fg_color='green', command=lambda : sorting.insertion(liste))
+    button2  = ctk.CTkButton(master=frame_menu, text='Insertion', width=200, fg_color='green', command=lambda : sorting.insertion(liste))
     button2.grid(row=2, column=0, padx=10, pady=10)
 
     button3  = ctk.CTkButton(master=frame_menu, text='Fusion', width=200, fg_color='green')
