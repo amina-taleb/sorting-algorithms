@@ -66,25 +66,25 @@ def afficher_interface() :
     label1 = ctk.CTkLabel(master=frame_menu, text='Visualiser les algorithmes', text_color='black', font=('Arial', 20))
     label1.grid(row=0, column=0, padx=10, pady=10)
 
-    button1  = ctk.CTkButton(master=frame_menu, text='Selection', width=200, fg_color='green' ,command=lambda : sorting.selection(liste))
+    button1  = ctk.CTkButton(master=frame_menu, text='Sélection', width=200, fg_color='green' ,command=lambda : sorting.selection(liste))
     button1.grid(row=1, column=0, padx=10, pady=10)
 
-    button2  = ctk.CTkButton(master=frame_menu, text='Inserion', width=200, fg_color='green', command=lambda : sorting.insertion(liste))
+    button2  = ctk.CTkButton(master=frame_menu, text='Insertion', width=200, fg_color='green', command=lambda : sorting.insertion(liste))
     button2.grid(row=2, column=0, padx=10, pady=10)
 
-    button3  = ctk.CTkButton(master=frame_menu, text='Fusion', width=200, fg_color='green')
+    button3  = ctk.CTkButton(master=frame_menu, text='Fusion', width=200, fg_color='green', command=lambda : sorting.tri_fusion(liste))
     button3.grid(row=3, column=0, padx=10, pady=10)
 
     button4  = ctk.CTkButton(master=frame_menu, text='Rapide', width=200, fg_color='green', command=lambda : sorting.rapide(liste))
     button4.grid(row=4, column=0, padx=10, pady=10)
 
-    button5  = ctk.CTkButton(master=frame_menu, text='Peigne', width=200, fg_color='green')
+    button5  = ctk.CTkButton(master=frame_menu, text='Peigne', width=200, fg_color='green', command=lambda : sorting.peigne(liste))
     button5.grid(row=5, column=0, padx=10, pady=10)
 
     button6  = ctk.CTkButton(master=frame_menu, text='Bulle', width=200, fg_color='green', command=lambda : sorting.bulle())
     button6.grid(row=6, column=0, padx=10, pady=10)
 
-    button7  = ctk.CTkButton(master=frame_menu, text='Tas', width=200, fg_color='green')
+    button7  = ctk.CTkButton(master=frame_menu, text='Tas', width=200, fg_color='green', command=lambda : sorting.heap_sort(liste))
     button7.grid(row=7, column=0, padx=10, pady=10)
 
     button8  = ctk.CTkButton(master=frame_menu, text='TRIER', width=200, fg_color='red') #créer une fonction qui choisit l'algorithme à exécuter selon la nature du problème
