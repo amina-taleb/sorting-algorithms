@@ -7,6 +7,7 @@ import random
 import time
 from tkinter import filedialog
 import os
+import csv 
 
 ###################################################################################################################################
 # Créer une fonction qui genere aleatoirement n elements :
@@ -21,7 +22,7 @@ def generer_chiffres(frame, liste_cible):
         widget.destroy()  # Supprime tous les widgets existants dans le frame
 
     texte = '[ ' + ', '.join(str(x) for x in gen_liste) + ' ]'  # Convertit les éléments en chaîne de caractères pour pouvoir les afficher
-    label = ctk.CTkLabel(master=frame, text=f"L = {texte}", font=("Arial", 18), text_color="black", wraplength=400)  #afficher la liste que frame_graph
+    label = ctk.CTkLabel(master=frame, text=f"L = {texte}", font=("Arial", 18), text_color="black", wraplength=600)  #afficher la liste que frame_graph
     label.pack(padx=10, pady=10)
 
 
@@ -40,7 +41,7 @@ def generer_lettres(frame, liste_cible):
         widget.destroy()
 
     texte = '[ ' + ', '.join(str(x) for x in gen_liste) + ' ]'  # Convertit les éléments en chaîne de caractères
-    label = ctk.CTkLabel(master=frame, text=f"L = {texte}", font=("Arial", 18), text_color="black", wraplength=400)  # Afficher la liste
+    label = ctk.CTkLabel(master=frame, text=f"L = {texte}", font=("Arial", 18), text_color="black", wraplength=600)  # Afficher la liste
     label.pack(padx=10, pady=10)
 
     size_label = ctk.CTkLabel(master=frame, text=f"N = {size}", font=("Arial", 18), text_color="black")  # Afficher le nombre d'éléments
@@ -74,7 +75,7 @@ def generer_dates(frame, liste_cible):
         widget.destroy()
 
     texte = '[ ' + ', '.join(str(x) for x in gen_liste) + ' ]'      # Convertit les éléments en chaîne de caractères pour pouvoir les afficher
-    label = ctk.CTkLabel(master=frame, text=f"L = {texte}", font=("Arial", 18), text_color="black", wraplength=400)  
+    label = ctk.CTkLabel(master=frame, text=f"L = {texte}", font=("Arial", 18), text_color="black", wraplength=600)  
     label.pack(padx=10, pady=10)
 
     size_label = ctk.CTkLabel(master=frame, text=f"N = {size}", font=("Arial", 18), text_color="black")
@@ -154,7 +155,7 @@ def afficher_tri(frame, liste_cible, fonction_tri):
     label_algo = ctk.CTkLabel(master=frame, text=f"Algorithme utilisé: {nom_algo}", font=("Arial", font_size, "bold"), text_color="blue")
     label_algo.place(x=10, y=50)
 
-    label_avant = ctk.CTkLabel(master=frame, text="Avant tri : " + '[' + ', '.join(map(str, liste_cible)) + ']', font=("Arial", font_size), text_color="black", wraplength=600)
+    label_avant = ctk.CTkLabel(master=frame, text="Avant tri : " + '[' + ', '.join(map(str, liste_cible)) + ']', font=("Arial", font_size), text_color="black", wraplength=700)
     label_avant.place(x=10, y=150)
 
 
@@ -163,7 +164,7 @@ def afficher_tri(frame, liste_cible, fonction_tri):
     fin = time.perf_counter()  # Prendre un horodatage après l'exécution
     duree = fin - debut  # Calculer la durée en secondes
 
-    label_apres = ctk.CTkLabel(master=frame, text="Après tri : " + '[' + ', '.join(map(str, liste_triee)) + ']', font=("Arial", font_size), text_color="green", wraplength=600)
+    label_apres = ctk.CTkLabel(master=frame, text="Après tri : " + '[' + ', '.join(map(str, liste_triee)) + ']', font=("Arial", font_size), text_color="green", wraplength=700)
     label_apres.place(x=10, y=250)
 
     size = len(liste_cible)

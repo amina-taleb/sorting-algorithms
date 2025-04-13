@@ -1,6 +1,7 @@
 import customtkinter as ctk
 import sorting
 import functional_buttons
+import connexion_python_sql
 
 # 2. Créer une fonction qui affiche l'interface customtkinter :
 def afficher_interface():
@@ -15,6 +16,7 @@ def afficher_interface():
     window.grid_rowconfigure(1, weight=10)
 
     liste = []
+    liste_sql = connexion_python_sql.recuperer_info()
 
     # Frame titre
     frame_title = ctk.CTkFrame(master=window, fg_color='grey', height=100)
@@ -113,6 +115,9 @@ def afficher_interface():
 
     button_comparaison_graphique = ctk.CTkButton(master=frame_menu, text='Simulation', width=200, fg_color='purple', command=lambda: functional_buttons.afficher_graphique(frame_graph))
     button_comparaison_graphique.grid(row=3, column=1, padx=10, pady=10)
+
+    button_sql= ctk.CTkButton(master=frame_menu, text='DataBase', width=200, fg_color='brown', command=lambda: functional_buttons.trier_plus_rapide(frame_graph, liste_sql))
+    button_sql.grid(row=4, column=1, padx=10, pady=10)
 
     window.mainloop()
 
