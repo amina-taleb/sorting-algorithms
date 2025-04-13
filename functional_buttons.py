@@ -9,8 +9,8 @@ from tkinter import filedialog
 import os
 
 ###################################################################################################################################
-#3. Créer une fonction qui genere aleatoirement n elements :
-def generer_liste_aleatoire(frame, liste_cible):
+# Créer une fonction qui genere aleatoirement n elements :
+def generer_chiffres(frame, liste_cible):
     size = random.randint(5, 70)  
     gen_liste = [random.randint(0, 100) for _ in range(size)]  # y a pas i in range car y pas vraiment d'indice
 
@@ -28,6 +28,57 @@ def generer_liste_aleatoire(frame, liste_cible):
     size_label = ctk.CTkLabel(master=frame, text=f"N = {size}", font=("Arial", 18), text_color="black")  #afficher le nombre d'élements
     size_label.pack(padx=10, pady=10)
 
+###################################################################################################################################
+def generer_lettres(frame, liste_cible):
+    size = random.randint(5, 70)  
+    gen_liste = [random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') for _ in range(size)]  # Liste de lettres aléatoires
+
+    liste_cible.clear()  # Efface d'abord la liste existante
+    liste_cible.extend(gen_liste)  # Ajoute les éléments générés à la liste
+ 
+    for widget in frame.winfo_children():  # Supprime tous les widgets existants dans le frame
+        widget.destroy()
+
+    texte = '[ ' + ', '.join(str(x) for x in gen_liste) + ' ]'  # Convertit les éléments en chaîne de caractères
+    label = ctk.CTkLabel(master=frame, text=f"L = {texte}", font=("Arial", 18), text_color="black", wraplength=400)  # Afficher la liste
+    label.pack(padx=10, pady=10)
+
+    size_label = ctk.CTkLabel(master=frame, text=f"N = {size}", font=("Arial", 18), text_color="black")  # Afficher le nombre d'éléments
+    size_label.pack(padx=10, pady=10)
+
+##################################################################################################################################
+#une fonction qui génere aleatoirement des dates :
+def generer_dates(frame, liste_cible):
+    size = random.randint(5, 70)  #taille de la liste
+    gen_liste = []
+
+    for _ in range(size):
+
+        year = random.randint(1980, 2025)
+        month = random.randint(1, 12)
+        if month == 2:
+            day = random.randint(1, 28)  # Février 
+        elif month in [4, 6, 9, 11]:
+            day = random.randint(1, 30)  # Mois 30 jours
+        else:
+            day = random.randint(1, 31)  # Mois 31 jours
+
+        date = f"{year}-{month:02d}-{day:02d}"  # formater la date
+        gen_liste.append(date)
+
+    liste_cible.clear()  # Efface d'abord la liste existante
+    liste_cible.extend(gen_liste)  # Ajoute les éléments générés à la liste
+ 
+    # Supprime tous les widgets existants dans le frame
+    for widget in frame.winfo_children():  
+        widget.destroy()
+
+    texte = '[ ' + ', '.join(str(x) for x in gen_liste) + ' ]'      # Convertit les éléments en chaîne de caractères pour pouvoir les afficher
+    label = ctk.CTkLabel(master=frame, text=f"L = {texte}", font=("Arial", 18), text_color="black", wraplength=400)  
+    label.pack(padx=10, pady=10)
+
+    size_label = ctk.CTkLabel(master=frame, text=f"N = {size}", font=("Arial", 18), text_color="black")
+    size_label.pack(padx=10, pady=10)
 
 ####################################################################################################################################
 #4. Créer une fonction qui convertit les element saisis dans le champs en une liste exploitable :
@@ -41,14 +92,14 @@ def inserer_valeurs_manuellement(frame, liste_cible, champ):
 
     except ValueError: 
         liste_cible.clear()
-        liste_cible.extend(sorted(texte.split(',')))    #si pas num, on trie alphabétiquement avec la fonction sorted (tri rapide de python) en attendant de trouver comment trier avec l'algo avec ASCII
+        liste_cible.extend(texte.split(','))    #si pas num, on trie alphabétiquement avec la fonction sorted (tri rapide de python) en attendant de trouver comment trier avec l'algo avec ASCII
 
 
     for widget in frame.winfo_children():     # Affichage de la liste dans l'interface
         widget.destroy()  # Supprime tous les widgets existants dans le frame
 
     # Affichage de la liste 
-    texte = '[]' + ', '.join(str(x) for x in liste_cible) + ']'  # Convertit les éléments en chaîne de caractères
+    texte = '[' + ', '.join(str(x) for x in liste_cible) + ']'  # Convertit les éléments en chaîne de caractères
     label = ctk.CTkLabel(master=frame, text=f"L = {texte}", font=("Arial", 18), text_color="black", wraplength=400)  # Crée un label pour afficher la liste
     label.pack(padx=10, pady=10)
 
