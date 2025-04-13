@@ -9,7 +9,7 @@ import math
 # Selection : chercher le min dans toute la liste
 ########################################################################################################################
 #1. Tri par insertion :
-def insertion(liste, complexité) :
+def insertion(liste) :
     n = len(liste) 
     for i in range (1, n) :
         key = liste[i]  #un pointeur (element d'indice quelconque)
@@ -112,13 +112,12 @@ def heap_sort(arr):
     for i in range(n - 1, 0, -1):
         arr[0], arr[i] = arr[i], arr[0]
         heapify(i, 0)
-
+    return arr
 
 
 #####################################################################################################################################################################
-def rapide(liste, T) :
+def rapide(liste) :
     n = len(liste)
-    T0 = 1
     if n <= 1 :   # il y a un seul element dans la liste ou une liste vide
         return liste 
     #pivot = np.median(liste, axis=0)       #axis=0, cela signifie que nous calculons la médiane le long de l'axe des lignes
@@ -131,7 +130,6 @@ def rapide(liste, T) :
         else :
             liste_sup.append(liste[i])
 
-    complexite = n * T0 + np.log2(n) * n 
     return rapide(liste_inf) + [pivot] + rapide(liste_sup)
 # Ici pour rendre cet algorithme moins complexe, je choisit le pivot = mediane 
 #####################################################################################################################################################################
