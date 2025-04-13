@@ -56,8 +56,8 @@ for n in size:
 
 # la complexité : 
 n_values = np.linspace(1, 100, 101)
-complexity_insertion = (n_values**2) / (n_values.max()**2)  # Normalisation 
-complexity_quick = n_values * np.log2(n_values) / (n_values.max() * np.log(n_values.max()))  
+complexity_insertion = (n_values**2) 
+complexity_quick = n_values * np.log2(n_values) 
 
 #pour l'expérience
 plt.figure(figsize=(10, 6))
