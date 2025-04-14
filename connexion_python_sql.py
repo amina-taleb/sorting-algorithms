@@ -43,4 +43,5 @@ def recuperer_info():
     cnx.close()  # Fermer la connexion à la base de données
     return ages
 
-
+#recuperer_info() pour tester la BDD
+#Aller loin : récuperer un array age + nom (perspectives)
